@@ -17,9 +17,21 @@ export class App extends Component {
   
   handleDataSubmit = (data) => {
     const newContact = { id: nanoid(), name: data.name, number: data.number };
+    const alertMsg = `${newContact.name} is already in contacts`
+
+    const contactNames = this.state.contacts.map(contact => contact.name);
+    
+    contactNames.includes(newContact.name) ? alert(alertMsg) :
+      this.setState({
+        contacts: [...this.state.contacts, newContact]  
+      })    
+  }
+
+  handleContactDelete = (id) => {
     this.setState((prevState) => ({
-      contacts: [...prevState.contacts, newContact],   
+      contacts: prevState.contacts.filter(contact => contact.id !== id),
     }))
+    console.log(this.state.contacts)
   }
   
   render() {
@@ -28,25 +40,24 @@ export class App extends Component {
     const filteredContacts = contactsForRender.filter(contact => contact.name.toLowerCase().includes(normalizedSearchValue));
 
     return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        flexDirection: 'column',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-      >
-        <h1>Phonebook</h1>
-        <ContactForm onSubmit={this.handleDataSubmit}/>
-        <h2>Contacts</h2>
-        <Filter value={normalizedSearchValue} onChange={this.handleInputChange} />
-        <ContactList contacts={filteredContacts} />
-    </div>
-  );
-  
-}
+      <div
+        style={{
+          height: '100vh',
+          display: 'flex',
+          justifyContent: 'center',
+          flexDirection: 'column',
+          alignItems: 'center',
+          fontSize: 30,
+          color: '#010101'
+        }}
+        >
+          <h1>Phonebook</h1>
+          <ContactForm onSubmit={this.handleDataSubmit}/>
+          <h2>Contacts</h2>
+          <Filter value={normalizedSearchValue} onChange={this.handleInputChange} />
+        <ContactList contacts={filteredContacts} onDeleteClick={this.handleContactDelete} />
+      </div>
+    );
+  }
 }
 
