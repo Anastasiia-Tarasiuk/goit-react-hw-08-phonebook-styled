@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Item, Button } from "./ContactItem.styled"
 
 export const ContactItem = ({ name, number, id, onDeleteClick }) => {
@@ -7,4 +8,11 @@ export const ContactItem = ({ name, number, id, onDeleteClick }) => {
         <Button type="button" onClick={() => onDeleteClick(id)}>Delete</Button>
     </Item>
 
+}
+
+ContactItem.propTypes = {
+    onDeleteClick: PropTypes.func.isRequired,
+    id: PropTypes.number.isRequired,
+    number: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
 }

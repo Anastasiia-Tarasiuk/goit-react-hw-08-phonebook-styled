@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { ContactItem } from "components/ContactItem/ContactItem"
 
 export const ContactList = ({ contacts, onDeleteClick }) => {
@@ -9,5 +10,14 @@ export const ContactList = ({ contacts, onDeleteClick }) => {
         </ul>
         : <p>Phonebook is empty</p>
     )
+}
 
+
+ContactList.propTypes = {
+    onDeleteClick: PropTypes.func.isRequired,
+    contacts: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        number: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+    }))
 }
