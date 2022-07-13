@@ -5,10 +5,26 @@ import { ContactList } from "./ContactList/ContactList";
 import { Filter } from "./Filter/Filter";
 
 export class App extends Component {
-
+  
   state = {
     contacts: [],
     filter: '',
+  }
+
+  componentDidMount() {
+
+    const savedContacts = localStorage.getItem('contacts');
+    if (savedContacts) {
+
+      this.setState({ contacts: JSON.parse(savedContacts) });
+    }
+  }
+
+  componentDidUpdate(_, prevState) {
+  
+    if (this.state.contacts !== prevState.contacts) {
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts))
+    }
   }
 
   handleInputChange = (e) => {
@@ -31,9 +47,10 @@ export class App extends Component {
     this.setState((prevState) => ({
       contacts: prevState.contacts.filter(contact => contact.id !== id),
     }))
-    console.log(this.state.contacts)
   }
   
+
+
   render() {
     const contactsForRender = this.state.contacts;
     const normalizedSearchValue = this.state.filter.toLocaleLowerCase();
