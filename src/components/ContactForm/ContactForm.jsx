@@ -3,17 +3,25 @@ import { Form, Input, Button } from "./ContactForm.styled";
 import { useDispatch } from "react-redux/es/exports";
 import { addContact } from "redux/store";
 import { nanoid } from 'nanoid';
+import { useSelector } from "react-redux/es/exports";
+import Notiflix from 'notiflix';
 
 export function ContactForm() {
  
     const dispatch = useDispatch();
-
+    const stateContacts = useSelector((state) => state.contacts.items);
+    const contactsNames = stateContacts.map(contact => contact.name.toLowerCase());
+        
     const [name, setName] = useState('');
     const [number, setNumber] = useState('');
-
+    
     const handleFormSubmit = e => {
         e.preventDefault();
-        dispatch(addContact({ id: nanoid(), name, number }))
+
+        contactsNames.includes(name.toLowerCase())
+            ? Notiflix.Notify.failure(`${name} is already in contacts`)
+            : dispatch(addContact({ id: nanoid(), name, number }));
+        
         handleFormReset();
     }
 

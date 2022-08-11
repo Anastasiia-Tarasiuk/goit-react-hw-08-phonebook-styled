@@ -6,7 +6,7 @@ export const ContactList = () => {
 
     const contactsFromStore = useSelector(state => state.contacts.items);
     const filterValueFromStore = useSelector(state => state.contacts.filter);
-    
+
     useEffect(() => {   
         localStorage.setItem('contacts', JSON.stringify(contactsFromStore))
     }, [contactsFromStore]);
