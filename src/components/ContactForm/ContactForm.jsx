@@ -1,13 +1,19 @@
 import { useState } from "react";
 import { Form, Input, Button } from "./ContactForm.styled";
+import { useDispatch } from "react-redux/es/exports";
+import { addContact } from "redux/store";
+import { nanoid } from 'nanoid';
 
-export function ContactForm({onSubmit}) {
+export function ContactForm() {
+ 
+    const dispatch = useDispatch();
+
     const [name, setName] = useState('');
     const [number, setNumber] = useState('');
 
     const handleFormSubmit = e => {
         e.preventDefault();
-        onSubmit({name,number})
+        dispatch(addContact({ id: nanoid(), name, number }))
         handleFormReset();
     }
 
