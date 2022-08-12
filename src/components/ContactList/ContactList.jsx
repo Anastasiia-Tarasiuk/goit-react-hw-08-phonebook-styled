@@ -1,15 +1,10 @@
 import { ContactItem } from "components/ContactItem/ContactItem";
 import { useSelector } from "react-redux/es/exports";
-import { useEffect } from "react";
 
 export const ContactList = () => {
 
     const contactsFromStore = useSelector(state => state.contacts.items);
     const filterValueFromStore = useSelector(state => state.contacts.filter);
-
-    useEffect(() => {   
-        localStorage.setItem('contacts', JSON.stringify(contactsFromStore))
-    }, [contactsFromStore]);
 
     let contactsForRender = null;
     

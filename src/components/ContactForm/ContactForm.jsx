@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Form, Input, Button } from "./ContactForm.styled";
 import { useDispatch } from "react-redux/es/exports";
-import { addContact } from "redux/store";
+import { addContact } from "redux/contactsSlice";
 import { nanoid } from 'nanoid';
 import { useSelector } from "react-redux/es/exports";
 import Notiflix from 'notiflix';
