@@ -20,9 +20,7 @@ export function ContactForm() {
 
         contactsNames.includes(name.toLowerCase())
             ? Notiflix.Notify.failure(`${name} is already in contacts`)
-            : dispatch(addContact({ id: nanoid(), name, number }));
-        
-        handleFormReset();
+            : dispatch(addContact({ id: nanoid(), name, number })) && handleFormReset();
     }
 
     const handleFormReset = () => {
