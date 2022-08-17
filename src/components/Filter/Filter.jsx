@@ -1,28 +1,22 @@
 import { FilterLable, FilterInput } from "./Filter.styled";
-// import { useDispatch } from "react-redux/es/exports";
-// import { filteredValue } from "redux/contactsSlice";
-import { useState } from "react";
+import { useDispatch } from "react-redux/es/exports";
+import { useSelector } from "react-redux";
+import { setFilter } from "redux/filterSlice";
 
 export const Filter = () => {
     
-    const [filter, setFilter] = useState('');
+    const filterValue = useSelector(state => state.filter.value)
 
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
-    const handleFilterInputChange = (e) => {
-        const { value } = e.currentTarget;
-        setFilter(value);
-        // dispatch(filteredValue(value.toLocaleLowerCase()))
-    }
-    console.log(filter);
-
-    return  <FilterLable>Find contacts by name
-        <FilterInput
+    return (
+        <FilterLable>Find contacts by name
+            <FilterInput
                 type="text"
-                value={filter}
-                onChange={handleFilterInputChange}
+                value={filterValue}
+                onChange={e => dispatch(setFilter(e.target.value.toLocaleLowerCase()))}
                 name="filter"
-                />
-            </FilterLable>
+            />
+        </FilterLable>)
 
 }

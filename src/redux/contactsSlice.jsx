@@ -23,7 +23,7 @@ export const contactsApi = createApi({
                 body: newContact,
             }),
             invalidatesTags: ['Contact'],
-        })
+        }),
     }),
 });
 

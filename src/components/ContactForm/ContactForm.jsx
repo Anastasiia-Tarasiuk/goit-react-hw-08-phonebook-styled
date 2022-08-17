@@ -1,40 +1,34 @@
 import { useState } from "react";
-import toast from 'react-hot-toast';
+import Notiflix from "notiflix";
 import { Form, Input, Button } from "./ContactForm.styled";
 import { useAddContactMutation } from "redux/contactsSlice";
-// import { useDispatch } from "react-redux/es/exports";
-// import { addContact } from "redux/contactsSlice";
-// import { useSelector } from "react-redux/es/exports";
-// import Notiflix from 'notiflix';
+import { useGetContactsQuery } from 'redux/contactsSlice';
 
 export function ContactForm() {
 
-    const [addContact, {isLoading: isAdding}] = useAddContactMutation(); 
- 
-    // const dispatch = useDispatch();
-    // const stateContacts = useSelector(state => state.contactsApi.queries.getContacts());
-    // const contactsNames = stateContacts.map(contact => contact.name.toLowerCase());
-        
-    // .contactsApi.queries
-    // console.dir(stateContacts);
     const [name, setName] = useState('');
     const [number, setNumber] = useState('');
-    
+
+    const [addContact, { isLoading: isAdding }] = useAddContactMutation(); 
+    const { data } = useGetContactsQuery();
+
+    let contactsNames = [];
+    if (data) {
+        contactsNames = data.map(contact => contact.name.toLowerCase());
+    } 
+
     const handleFormSubmit = e => {
         e.preventDefault();
-        addContact({ name, number }) && toast.success('Contact was added') && handleFormReset();
 
-        // toast.success('Contact was added');
-
-        // contactsNames.includes(name.toLowerCase())
-        //     ? Notiflix.Notify.failure(`${name} is already in contacts`)
-        //     : <p>тут контакти</p> && handleFormReset();
-        //     // : dispatch(addContact({ id: nanoid(), name, number })) && handleFormReset();
+        contactsNames.includes(name.toLowerCase())
+            ? Notiflix.Notify.failure('Contact already exists')
+            : addContact({ name, number }) && handleFormReset() ;
     }
 
     const handleFormReset = () => {
         setName('');
         setNumber('');
+        Notiflix.Notify.success('Contact was added');
     }
 
     const handleInputChange = (e) => {
