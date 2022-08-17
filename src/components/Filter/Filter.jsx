@@ -5,8 +5,7 @@ import { setFilter } from "redux/filterSlice";
 
 export const Filter = () => {
     
-    const filterValue = useSelector(state => state.filter.value)
-
+    const filterValue = useSelector(state => state.filter.value);
     const dispatch = useDispatch();
 
     return (

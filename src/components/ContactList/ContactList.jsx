@@ -24,8 +24,6 @@ export const ContactList = () => {
                         <ContactItem key={contact.id} id={contact.id} name={contact.name} number={contact.phone} />)}
                 </ul>
             }
-            
-            {/* {data === undefined && <p>Phonebook is empty</p>} */}
         </>
     )
 }
