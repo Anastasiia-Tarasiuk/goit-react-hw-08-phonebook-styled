@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 export const Item = styled.li`
     display: flex;
-    width: 300px;
+    width: 400px;
     justify-content: space-between;
     font-size: 20px;
 
