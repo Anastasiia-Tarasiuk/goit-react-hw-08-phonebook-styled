@@ -21,7 +21,7 @@ export function ContactForm() {
         e.preventDefault();
 
         contactsNames.includes(name.toLowerCase())
-            ? Notiflix.Notify.failure('Contact already exists')
+            ? Notiflix.Notify.warning('Contact already exists')
             : addContact({ name, number }) && handleFormReset() ;
     }
 

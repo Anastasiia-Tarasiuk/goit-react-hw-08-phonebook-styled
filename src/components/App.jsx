@@ -16,9 +16,9 @@ export function App() {
           color: '#010101'
         }}
         >
-        <h1>Phonebook</h1>
+        <h1 style={{ color: 'blue'}}>Phonebook</h1>
         <ContactForm/>
-        <h2>Contacts</h2>
+      <h2 style={{ color: 'blue' }}>Contacts</h2>
         <Filter />
         <ContactList />
       </div>
