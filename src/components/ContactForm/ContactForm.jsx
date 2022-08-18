@@ -7,7 +7,7 @@ import { useGetContactsQuery } from 'redux/contactsSlice';
 export function ContactForm() {
 
     const [name, setName] = useState('');
-    const [number, setNumber] = useState('');
+    const [phone, setPhone] = useState('');
 
     const [addContact, { isLoading: isAdding }] = useAddContactMutation(); 
     const { data } = useGetContactsQuery();
@@ -22,12 +22,12 @@ export function ContactForm() {
 
         contactsNames.includes(name.toLowerCase())
             ? Notiflix.Notify.warning('Contact already exists')
-            : addContact({ name, number }) && handleFormReset() ;
+            : addContact({ name, phone }) && handleFormReset();
     }
 
     const handleFormReset = () => {
         setName('');
-        setNumber('');
+        setPhone('');
         Notiflix.Notify.success('Contact was added');
     }
 
@@ -40,7 +40,7 @@ export function ContactForm() {
                 break;
             
             case 'number':
-            setNumber(value);    
+            setPhone(value);    
                 break;
         
             default:
@@ -63,7 +63,7 @@ export function ContactForm() {
             </label>
             <label>Number
                 <Input
-                value={number}
+                value={phone}
                 onChange={handleInputChange}
                 type="text"
                 name="number"              
