@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { createApi } from '@reduxjs/toolkit/query/react';
 import axios from 'axios';
 
 const axiosBaseQuery =
@@ -41,10 +41,10 @@ export const contactsApi = createApi({
             invalidatesTags: ['Contact'],
         }),
         addContact: builder.mutation({
-            query: newContact => ({
+          query: newContact => ({
                 url: 'contacts',
                 method: 'POST',
-                body: newContact,
+                data: newContact,
             }),
             invalidatesTags: ['Contact'],
         }),
