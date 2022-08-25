@@ -1,4 +1,4 @@
-import { StyledLink } from "./AuthMenu.styled";
+import { StyledLink} from "./AuthMenu.styled";
 
 export const AuthMenu = () => {
 return (
