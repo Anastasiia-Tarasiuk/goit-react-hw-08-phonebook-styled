@@ -20,6 +20,7 @@ export const AvatarLetter = styled.p`
     font-size: 24px;
     color: white;
     position: absolute;
-    top: 6px;
-    left: 12px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 `

@@ -21,7 +21,7 @@ export const ContactList = () => {
             {data &&
                 <ul>
                     {contactsForRender.map(contact =>
-                        <ContactItem key={contact.id} id={contact.id} name={contact.name} number={contact.phone} />)}
+                        <ContactItem key={contact.id} id={contact.id} name={contact.name} number={contact.number} />)}
                 </ul>
             }
         </>

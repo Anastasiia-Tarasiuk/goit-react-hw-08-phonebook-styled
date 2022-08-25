@@ -22,7 +22,7 @@ export function ContactForm() {
 
         contactsNames.includes(name.toLowerCase())
             ? Notiflix.Notify.warning('Contact already exists')
-            : addContact({ name, phone }) && handleFormReset();
+            : addContact({ name, number: phone }) && handleFormReset();
     }
 
     const handleFormReset = () => {

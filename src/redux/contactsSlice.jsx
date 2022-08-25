@@ -21,7 +21,7 @@ const axiosBaseQuery =
 export const contactsApi = createApi({
     reducerPath: 'contactsApi',
     baseQuery: axiosBaseQuery({
-        baseUrl: 'https://62fca9546e617f88de9b3751.mockapi.io/',
+        baseUrl: 'https://connections-api.herokuapp.com/',
     }),
         
     tagTypes: ['Contact'],
@@ -41,14 +41,18 @@ export const contactsApi = createApi({
             invalidatesTags: ['Contact'],
         }),
         addContact: builder.mutation({
-          query: newContact => ({
+          query: newContact => {
+            return ({
                 url: 'contacts',
                 method: 'POST',
                 data: newContact,
-            }),
+            })
+          },
             invalidatesTags: ['Contact'],
         }),
     }),
 });
+
+
 
 export const { useGetContactsQuery, useDeleteContactMutation, useAddContactMutation} = contactsApi;

@@ -5,6 +5,7 @@ import { authOperations } from "auth/authOperations";
 import { Container, UserName, Avatar, AvatarLetter } from "./UserMenu.styled";
 
 const UserMenu = () => {
+
     const userName = useSelector(authSelectors.getUserName);
     const dispatch = useDispatch();
 

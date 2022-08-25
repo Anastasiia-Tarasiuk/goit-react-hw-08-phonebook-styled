@@ -5,9 +5,18 @@ import Register from 'pages/Register/Register';
 import Layout from './Layout/Layout';
 import Login from 'pages/Login/Login';
 import Contacts from 'pages/Contacts/Contacts';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { authOperations } from 'auth/authOperations';
 
 export function App() {
    
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(authOperations.getCurrentUser());
+  }, [dispatch]);
+
   return (
       <div
         style={{
