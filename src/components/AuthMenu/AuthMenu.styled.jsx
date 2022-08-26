@@ -8,6 +8,6 @@ export const StyledLink = styled(NavLink)`
         margin-right: 20px;
     }
     &.active {
-    color: orange;
+    color: blue;
     }
 `
