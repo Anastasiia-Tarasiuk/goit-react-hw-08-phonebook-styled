@@ -2,8 +2,8 @@ import styled from '@emotion/styled';
 
 export const Item = styled.li`
     display: flex;
-    width: 400px;
-    justify-content: space-between;
+    width: 440px;
+    align-items: center;
     font-size: 20px;
 
     :not(:last-child) {
@@ -20,4 +20,12 @@ export const Button = styled.button`
         background-color: blue;
         color:white;
     }
+`
+
+export const Name = styled.span`
+    width: 250px;
+`
+
+export const Number = styled.span`
+    margin-left: auto;
 `

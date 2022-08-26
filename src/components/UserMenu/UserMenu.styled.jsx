@@ -24,3 +24,10 @@ export const AvatarLetter = styled.p`
     left: 50%;
     transform: translate(-50%,-50%);
 `
+export const Button = styled.button`
+
+    :hover {        
+        background-color: blue;
+        color:white;
+    }
+`

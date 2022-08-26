@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { authOperations } from "auth/authOperations";
+import { Form, Input, Button, Container, Title, SubTitle, Label} from "./Login.styled";
 
 const Login = () => {
 
@@ -38,19 +39,19 @@ const Login = () => {
     }
 
     return (
-        <>        
-            <h2>Login form</h2>
-            <p>Please, sign in</p>
-            <form onSubmit={handleSubmit}>
-                <label>Email
-                    <input type="email" name='email' value={email} onChange={handleChange}/>
-                </label>
-                <label>Password
-                    <input type="password" name="password" value={password} onChange={handleChange} />
-                </label>
-                <button type="submit">Sign in</button>
-            </form>
-        </>
+        <Container>        
+            <Title>Login form</Title>
+            <SubTitle>Please, sign in</SubTitle>
+            <Form onSubmit={handleSubmit}>
+                <Label>Email
+                    <Input type="email" name='email' value={email} onChange={handleChange} required/>
+                </Label>
+                <Label>Password
+                    <Input type="password" name="password" value={password} onChange={handleChange} required/>
+                </Label>
+                <Button type="submit">Sign in</Button>
+            </Form>
+        </Container>
         
     )
 };

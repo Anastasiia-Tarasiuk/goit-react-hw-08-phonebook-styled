@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { ErrorMessage } from "components/ErrorMessage/ErrorMessage";
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
 
@@ -19,6 +20,13 @@ const register = createAsyncThunk('auth/register', async formData => {
         return data;
     } catch (error) {
         console.log(error.message);
+        const stutusCode = error.response.request.status;
+      
+        if (stutusCode === 400 ) {
+            ErrorMessage('Such user already exists');
+        } else {
+            ErrorMessage('Something went wrong');
+        }        
     }
 });
 
@@ -30,6 +38,13 @@ const logIn = createAsyncThunk('auth/login', async formData => {
         return data;
     } catch (error) {
         console.log(error.message);
+        const stutusCode = error.response.request.status;
+      
+        if (stutusCode === 400 ) {
+            ErrorMessage('Such user does not exist');
+        } else {
+            ErrorMessage('Something went wrong');
+        }  
     }
 });
 
@@ -39,6 +54,7 @@ const logOut = createAsyncThunk('auth/logout', async formData => {
         token.unset();
     } catch (error) {
         console.log(error.message);
+        ErrorMessage('Something went wrong');
     }
 });
 
@@ -57,6 +73,7 @@ const getCurrentUser = createAsyncThunk('auth/current', async (_, thunkAPI) => {
         return data;
     } catch (error) {
         console.log(error.message);
+        ErrorMessage('Something went wrong');
     }
 });
 

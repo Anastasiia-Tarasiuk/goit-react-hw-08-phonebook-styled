@@ -6,4 +6,5 @@ export const FilterLable = styled.label`
 `
 export const FilterInput = styled.input`
     margin-left: 10px;
+    margin-bottom: 10px;
 `

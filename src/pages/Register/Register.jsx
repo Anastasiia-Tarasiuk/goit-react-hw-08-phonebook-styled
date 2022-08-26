@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { authOperations } from "auth/authOperations";
+import { Form, Input, Button, Container, Title, SubTitle, Label} from "./Register.styled";
 
 const Register = () => {
     const dispatch = useDispatch();
@@ -44,22 +45,22 @@ const Register = () => {
 
   
     return (
-        <>
-            <h2>Register form</h2> 
-            <p>Please, enter the correct information to become a user of Phonebook</p>
-            <form onSubmit={handleSubmit}>
-                <label>Name
-                    <input type="text" name='name' value={name} onChange={handleChange} />
-                </label>
-                <label>Email
-                    <input type="email" name='email' value={email} onChange={handleChange}/>
-                </label>
-                <label>Password
-                    <input type="password" name='password' value={password} onChange={handleChange}/>
-                </label>
-            <button type="submit">Register</button>
-            </form>
-        </>
+        <Container>
+            <Title>Register form</Title> 
+            <SubTitle>Please, enter the correct information to become a user of Phonebook</SubTitle>
+            <Form onSubmit={handleSubmit}>
+                <Label>Name
+                    <Input type="text" name='name' value={name} onChange={handleChange} required/>
+                </Label>
+                <Label>Email
+                    <Input type="email" name='email' value={email} onChange={handleChange} required/>
+                </Label>
+                <Label>Password
+                    <Input type="password" name='password' value={password} onChange={handleChange} required/>
+                </Label>
+            <Button type="submit">Register</Button>
+            </Form>
+        </Container>
 
     )
 

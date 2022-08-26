@@ -7,7 +7,7 @@ const Contacts = () => {
 
     return (
         <Container>
-            <h1 style={{ color: 'blue' }}>Phonebook</h1>
+            <h2 style={{ color: 'blue' }}>Phonebook</h2>
             <ContactForm />
             <h2 style={{ color: 'blue' }}>Contacts</h2>
             <Filter />

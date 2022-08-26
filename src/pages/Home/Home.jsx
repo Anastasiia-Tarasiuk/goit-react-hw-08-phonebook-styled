@@ -1,10 +1,12 @@
+import { Container, Title} from "./Home.styled";
+
 const Home = () => {
 
     return (
-        <>
-            <h1>Welcome to Phonebook</h1>
-            <p>You need to sign in or register to be able to use it</p>
-        </>
+        <Container>
+            <Title>Welcome to Phonebook</Title>
+            <p>This is a website made to keep all your contacts secured</p>
+        </Container>
     )
 }
 
