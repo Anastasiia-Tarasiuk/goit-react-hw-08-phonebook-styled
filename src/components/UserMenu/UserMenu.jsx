@@ -9,7 +9,7 @@ const UserMenu = () => {
     const userName = useSelector(authSelectors.getUserName);
     const dispatch = useDispatch();
 
-    return (
+    return ( userName &&
         <Container>
             <Avatar>
                 <AvatarLetter>{userName.slice(0,1).toUpperCase()}</AvatarLetter>
