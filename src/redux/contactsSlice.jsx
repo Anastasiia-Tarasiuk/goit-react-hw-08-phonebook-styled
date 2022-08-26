@@ -1,5 +1,6 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
 import axios from 'axios';
+import Notiflix from "notiflix";
 
 const axiosBaseQuery =
   ({ baseUrl } = { baseUrl: '' }) =>
@@ -36,17 +37,19 @@ export const contactsApi = createApi({
         }),
         deleteContact: builder.mutation({
             query: contactId => ({
-                url: `contacts/${contactId}`,
-                method: 'DELETE',
+              url: `contacts/${contactId}`,
+              method: 'DELETE',
+              isSuccess: Notiflix.Notify.success('Contact was deleted'),
             }),
             invalidatesTags: ['Contact'],
         }),
         addContact: builder.mutation({
           query: newContact => {
             return ({
-                url: 'contacts',
-                method: 'POST',
-                data: newContact,
+              url: 'contacts',
+              method: 'POST',
+              data: newContact,
+              isSuccess: Notiflix.Notify.success('Contact was added'),
             })
           },
             invalidatesTags: ['Contact'],

@@ -4,7 +4,7 @@ import { useSelector } from "react-redux/es/exports";
 import { useGetContactsQuery } from 'redux/contactsSlice';
 
 export const ContactList = () => {
-    const { data, isFetching } = useGetContactsQuery();
+    const { data } = useGetContactsQuery();
     const filterValueFromStore = useSelector(state => state.filter.value);
 
     let contactsForRender = null;
@@ -17,12 +17,15 @@ export const ContactList = () => {
     
     return (
         <>
-            { isFetching && <Loader/>}
-            {data &&
-                <ul>
+            {data ?
+                (data.length > 0 ?
+                    <ul>
                     {contactsForRender.map(contact =>
                         <ContactItem key={contact.id} id={contact.id} name={contact.name} number={contact.number} />)}
-                </ul>
+                    </ul>
+                    : <p>Phonebook is empty</p>
+                )
+                : <Loader/>
             }
         </>
     )

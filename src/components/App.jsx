@@ -11,7 +11,7 @@ import { authOperations } from 'auth/authOperations';
 import { PrivateRoute } from './PrivateRoute/PravateRoute';
 import { PublicRoute } from './PublicRoute/PublicRoute';
 import { authSelectors } from 'auth/authSelectors'; 
-import HeadBodyGrid from './Skeleton/Skeleton';
+import { Loader } from './Loader/Loader';
 
 
 export function App() {
@@ -23,7 +23,7 @@ export function App() {
     dispatch(authOperations.getCurrentUser());
   }, [dispatch]);
 
-  return ( isGettingCurrentUser ? <HeadBodyGrid/> :
+  return ( isGettingCurrentUser ? <Loader/> :
       <div
         style={{
           height: '100vh',

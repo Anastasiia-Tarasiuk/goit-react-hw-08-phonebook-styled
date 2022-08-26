@@ -28,7 +28,6 @@ export function ContactForm() {
     const handleFormReset = () => {
         setName('');
         setPhone('');
-        Notiflix.Notify.success('Contact was added');
     }
 
     const handleInputChange = (e) => {
