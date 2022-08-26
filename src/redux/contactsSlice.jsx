@@ -25,6 +25,7 @@ export const contactsApi = createApi({
     }),
         
     tagTypes: ['Contact'],
+    refetchOnMountOrArgChange: true,
     endpoints: builder => ({
         getContacts: builder.query({
             query: () => ({
