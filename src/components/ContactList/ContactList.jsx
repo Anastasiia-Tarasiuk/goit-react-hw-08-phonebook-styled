@@ -4,7 +4,7 @@ import { useSelector } from "react-redux/es/exports";
 import { useGetContactsQuery } from 'redux/contactsSlice';
 
 export const ContactList = () => {
-    const { data } = useGetContactsQuery();
+    const { data, isFetching} = useGetContactsQuery();
     const filterValueFromStore = useSelector(state => state.filter.value);
 
     let contactsForRender = null;
@@ -17,7 +17,7 @@ export const ContactList = () => {
     
     return (
         <>
-            {data ?
+            {!isFetching ?
                 (data.length > 0 ?
                     <ul>
                     {contactsForRender.map(contact =>
