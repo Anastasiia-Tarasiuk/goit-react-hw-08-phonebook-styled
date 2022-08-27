@@ -19,13 +19,17 @@ const register = createAsyncThunk('auth/register', async formData => {
         token.set(data.token);
         return data;
     } catch (error) {
-        console.log(error.message);
-      
-        if (error?.response.request.status === 400 ) {
-            ErrorMessage('Such user already exists');
+        console.log(error.message);      
+
+        if (error.response.data) {
+            if (error.response.request.status === 400) {
+                ErrorMessage('Such user already exists');
+            } else {
+                ErrorMessage('Something went wrong');
+            }
         } else {
             ErrorMessage('Something went wrong');
-        }        
+        }
     }
 });
 
@@ -37,12 +41,16 @@ const logIn = createAsyncThunk('auth/login', async formData => {
         return data;
     } catch (error) {
         console.log(error.message);
-      
-        if (error?.response.request.status === 400 ) {
-            ErrorMessage('Such user does not exist');
+
+        if (error.response.data) {
+            if (error.response.request.status === 400) {
+                ErrorMessage('Such user does not exist');
+            } else {
+                ErrorMessage('Something went wrong');
+            }
         } else {
             ErrorMessage('Something went wrong');
-        }  
+        }
     }
 });
 
