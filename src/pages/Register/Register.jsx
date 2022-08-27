@@ -13,15 +13,8 @@ const Register = () => {
     const handleSubmit = e => {
         e.preventDefault();
         dispatch(authOperations.register({ name, email, password }));
-        handleFormReset();
     }
   
-    const handleFormReset = () => {
-        setName('');
-        setEmail('');
-        setPassword('');
-    }
-
     const handleChange = (e) => {
         const { name, value } = e.currentTarget;
 

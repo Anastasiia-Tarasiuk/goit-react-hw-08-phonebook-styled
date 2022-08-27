@@ -13,12 +13,6 @@ const Login = () => {
     const handleSubmit = e => {
         e.preventDefault();
         dispatch(authOperations.logIn({ email, password }));
-        handleFormReset();
-    }
-  
-    const handleFormReset = () => {
-        setEmail('');
-        setPassword('');
     }
 
     const handleChange = (e) => {

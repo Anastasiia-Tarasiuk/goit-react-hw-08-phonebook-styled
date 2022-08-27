@@ -20,9 +20,8 @@ const register = createAsyncThunk('auth/register', async formData => {
         return data;
     } catch (error) {
         console.log(error.message);
-        const stutusCode = error.response.request.status;
       
-        if (stutusCode === 400 ) {
+        if (error?.response.request.status === 400 ) {
             ErrorMessage('Such user already exists');
         } else {
             ErrorMessage('Something went wrong');
@@ -38,9 +37,8 @@ const logIn = createAsyncThunk('auth/login', async formData => {
         return data;
     } catch (error) {
         console.log(error.message);
-        const stutusCode = error.response.request.status;
       
-        if (stutusCode === 400 ) {
+        if (error?.response.request.status === 400 ) {
             ErrorMessage('Such user does not exist');
         } else {
             ErrorMessage('Something went wrong');
