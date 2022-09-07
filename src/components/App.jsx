@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import Home from 'pages/Home/Home';
-import NotFound from './Not found/Not found';
+import NotFound from './NotFound/NotFound';
 import Register from 'pages/Register/Register';
 import Layout from './Layout/Layout';
 import Login from 'pages/Login/Login';
@@ -12,6 +12,7 @@ import { PrivateRoute } from './PrivateRoute/PravateRoute';
 import { PublicRoute } from './PublicRoute/PublicRoute';
 import { authSelectors } from 'auth/authSelectors'; 
 import { Loader } from './Loader/Loader';
+import { Container } from './App.styled';
 
 
 export function App() {
@@ -24,17 +25,7 @@ export function App() {
   }, [dispatch]);
 
   return ( isGettingCurrentUser ? <Loader/> :
-      <div
-        style={{
-          height: '100vh',
-          display: 'flex',
-          justifyContent: 'center',
-          flexDirection: 'column',
-          alignItems: 'center',
-          fontSize: 30,
-          color: '#010101'
-        }}
-        >
+      <Container>
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
@@ -53,7 +44,7 @@ export function App() {
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>   
-      </div>    
+      </Container>    
     );
 }
 

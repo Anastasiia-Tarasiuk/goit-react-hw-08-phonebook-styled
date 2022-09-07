@@ -6,6 +6,7 @@ export const Form = styled.form`
     display: flex;
     flex-direction: column;
     width: 420px;
+    
 `
 
 export const Label = styled.label`

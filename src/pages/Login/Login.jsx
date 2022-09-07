@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { authOperations } from "auth/authOperations";
-import { Form, Input, Button, Container, Title, SubTitle, Label} from "./Login.styled";
+import { Form, Input, Container, Title, SubTitle, Label } from "./Login.styled";
+import Button from 'react-bootstrap/Button';
 
 const Login = () => {
 
@@ -43,7 +44,7 @@ const Login = () => {
                 <Label>Password
                     <Input type="password" name="password" value={password} onChange={handleChange} required/>
                 </Label>
-                <Button type="submit">Sign in</Button>
+                <Button variant="primary" type="submit">Sign in</Button>
             </Form>
         </Container>
         

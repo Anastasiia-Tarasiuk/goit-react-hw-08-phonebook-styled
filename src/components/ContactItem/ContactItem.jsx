@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
-import { Item, Button, Name, Number } from "./ContactItem.styled";
+import { Item, Name, Number } from "./ContactItem.styled";
 import { useDeleteContactMutation } from 'redux/contactsSlice';
+import Button from 'react-bootstrap/Button';
 
 export const ContactItem = ({ name, number, id }) => {
 
@@ -9,7 +10,15 @@ export const ContactItem = ({ name, number, id }) => {
     return <Item>
         <Name>{name}:</Name> 
         <Number>{number}</Number>
-        <Button type="button" disabled={isDeleting} onClick={() => deleteContact(id)}>{isDeleting ? 'Deleting...' : 'Delete'}</Button>
+        
+        <Button
+            className="ml-1"
+            variant="primary"
+            type="button"
+            disabled={isDeleting}
+            onClick={() => deleteContact(id)}>
+            {isDeleting ? 'Deleting...' : 'Delete'}
+        </Button>
     </Item>
 
 }

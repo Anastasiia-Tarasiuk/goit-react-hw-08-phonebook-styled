@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { authOperations } from "auth/authOperations";
-import { Form, Input, Button, Container, Title, SubTitle, Label} from "./Register.styled";
+import { Form, Input, Container, Title, SubTitle, Label } from "./Register.styled";
+import Button from 'react-bootstrap/Button';
 
 const Register = () => {
     const dispatch = useDispatch();
@@ -51,7 +52,7 @@ const Register = () => {
                 <Label>Password
                     <Input type="password" name='password' value={password} onChange={handleChange} required/>
                 </Label>
-            <Button type="submit">Register</Button>
+            <Button variant="primary" type="submit">Register</Button>
             </Form>
         </Container>
 
