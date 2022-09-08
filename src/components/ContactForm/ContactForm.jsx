@@ -50,7 +50,7 @@ export function ContactForm() {
     }
 
     return (            
-        <Form onSubmit={handleFormSubmit} className="mb-5 w-50" >
+        <Form onSubmit={handleFormSubmit} className="mb-5 w-50 d-flex flex-column justify-content-center" >
             <FloatingLabel
                 controlId="floatingInput"
                 label="Name"
@@ -85,10 +85,7 @@ export function ContactForm() {
                     required
                 />
             </FloatingLabel>   
-            <div className="d-flex justify-content-start">
-
-            <Button className="mx-auto w-25" variant="primary" type="submit" disabled={isAdding}>{isAdding ? 'Adding contact...' : 'Add contact'}</Button>
-            </div>
+            <Button className="mx-auto" variant="primary" type="submit" disabled={isAdding}>{isAdding ? 'Adding contact...' : 'Add contact'}</Button>
         </Form>
     )
 } 
