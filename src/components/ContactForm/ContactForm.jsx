@@ -52,7 +52,7 @@ export function ContactForm() {
     return (            
         <Form onSubmit={handleFormSubmit} className="mb-5 w-50 d-flex flex-column justify-content-center" >
             <FloatingLabel
-                controlId="floatingInput"
+                controlId="floatingNameInput"
                 label="Name"
                 className="mb-3"
             >
@@ -69,7 +69,7 @@ export function ContactForm() {
                 />
             </FloatingLabel>
             <FloatingLabel
-                controlId="floatingInput"
+                controlId="floatingNumberInput"
                 label="Number"
                 className="mb-3"
             >

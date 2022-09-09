@@ -1,4 +1,3 @@
-// import { FilterLable, FilterInput } from "./Filter.styled";
 import { useDispatch } from "react-redux/es/exports";
 import { useSelector } from "react-redux";
 import { setFilter } from "redux/filterSlice";

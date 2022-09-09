@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { authOperations } from "auth/authOperations";
-import { Form, Input, Container, Title, SubTitle, Label } from "./Login.styled";
+import { Container, Title, SubTitle } from "./Login.styled";
 import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
+
 
 const Login = () => {
 
@@ -37,14 +40,36 @@ const Login = () => {
         <Container>        
             <Title>Login form</Title>
             <SubTitle>Please, sign in</SubTitle>
-            <Form onSubmit={handleSubmit}>
-                <Label>Email
-                    <Input type="email" name='email' value={email} onChange={handleChange} required/>
-                </Label>
-                <Label>Password
-                    <Input type="password" name="password" value={password} onChange={handleChange} required/>
-                </Label>
-                <Button variant="primary" type="submit">Sign in</Button>
+            <Form onSubmit={handleSubmit} className="w-50 d-flex flex-column justify-content-center">
+                <FloatingLabel
+                    controlId="floatingEmailInput"
+                    label="Email"
+                    className="mb-3"
+                >
+                    <Form.Control
+                        placeholder="email"
+                        type="email"
+                        name='email'
+                        value={email}
+                        onChange={handleChange}
+                        required
+                    />
+                </FloatingLabel>
+                <FloatingLabel
+                    controlId="floatingPasswordInput"
+                    label="Password"
+                    className="mb-3"
+                >
+                    <Form.Control
+                        placeholder="password"
+                        type="password"
+                        name="password"
+                        value={password}
+                        onChange={handleChange}
+                        required
+                    />
+                </FloatingLabel>
+                <Button className="mx-auto" variant="primary" type="submit">Sign in</Button>
             </Form>
         </Container>
         
