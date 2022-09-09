@@ -2,9 +2,10 @@ import { useState } from "react";
 import Notiflix from "notiflix";
 import { useAddContactMutation } from "redux/contactsSlice";
 import { useGetContactsQuery } from 'redux/contactsSlice';
-import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import { ButtonElement } from "components/ButtonElement/ButtonElement";
+
 
 export function ContactForm() {
 
@@ -85,7 +86,7 @@ export function ContactForm() {
                     required
                 />
             </FloatingLabel>   
-            <Button className="mx-auto" variant="primary" type="submit" disabled={isAdding}>{isAdding ? 'Adding contact...' : 'Add contact'}</Button>
+            <ButtonElement text={`${isAdding ? 'Adding contact...' : 'Add contact'}`} type={"submit"} disabled={isAdding} />
         </Form>
     )
 } 

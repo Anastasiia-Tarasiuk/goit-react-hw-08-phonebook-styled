@@ -1,20 +1,21 @@
 import { ContactForm } from "components/ContactForm/ContactForm";
 import { Filter } from "components/Filter/Filter";
 import { ContactList } from "components/ContactList/ContactList";
-import { Container, Title } from "./Contacts.styled";
 import { ScrollUp } from "components/ScrollUp/ScrollUp";
+import { TitleText } from "components/TitleText/TitleText";
+import { FormContainer } from "components/Container/Container";
 
 const Contacts = () => {
 
     return (
-        <Container>
-            <Title>Phonebook</Title>
+        <FormContainer>
+            <TitleText text={'Phonebook'}/>
             <ContactForm />
-            <Title>Contacts</Title>
+            <TitleText text={'Contacts'}/>
             <Filter />
             <ContactList />
             <ScrollUp />
-        </Container>
+        </FormContainer>
     )
 };
 

@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { authOperations } from "auth/authOperations";
-import { Container, Title, SubTitle } from "./Login.styled";
-import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import { TitleText } from "components/TitleText/TitleText";
+import { FormContainer } from "components/Container/Container";
+import { SubtitleText } from "components/SubtitleText/SubtitleText";
+import { ButtonElement } from "components/ButtonElement/ButtonElement";
 
 
 const Login = () => {
@@ -37,9 +39,9 @@ const Login = () => {
     }
 
     return (
-        <Container>        
-            <Title>Login form</Title>
-            <SubTitle>Please, sign in</SubTitle>
+        <FormContainer>    
+            <TitleText text={'Login form'}/>
+            <SubtitleText text={'Please, sign in'}/>
             <Form onSubmit={handleSubmit} className="w-50 d-flex flex-column justify-content-center">
                 <FloatingLabel
                     controlId="floatingEmailInput"
@@ -69,9 +71,9 @@ const Login = () => {
                         required
                     />
                 </FloatingLabel>
-                <Button className="mx-auto" variant="primary" type="submit">Sign in</Button>
+                <ButtonElement text={'Sign in'} type={"submit"} />
             </Form>
-        </Container>
+        </FormContainer>
         
     )
 };

@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { authOperations } from "auth/authOperations";
-import { Container, Title, SubTitle } from "./Register.styled";
-import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import { TitleText } from "components/TitleText/TitleText";
+import { FormContainer } from "components/Container/Container";
+import { SubtitleText } from "components/SubtitleText/SubtitleText";
+import { ButtonElement } from "components/ButtonElement/ButtonElement";
 
 const Register = () => {
     const dispatch = useDispatch();
@@ -41,9 +43,9 @@ const Register = () => {
 
   
     return (
-        <Container>
-            <Title>Register form</Title> 
-            <SubTitle>Please, enter the correct information to become a user of Phonebook</SubTitle>
+        <FormContainer>
+            <TitleText text={'Register form'}/>
+            <SubtitleText text={'Please, enter the correct information to become a user of Phonebook'}/>
             <Form onSubmit={handleSubmit} className="w-50 d-flex flex-column justify-content-center">
                 <FloatingLabel
                     controlId="floatingNameInput"
@@ -87,9 +89,9 @@ const Register = () => {
                         required
                     />
                 </FloatingLabel>
-            <Button className="mx-auto" variant="primary" type="submit">Register</Button>
+                <ButtonElement text={'Register'} type={"submit"} />
             </Form>
-        </Container>
+        </FormContainer>
     )
 
 };

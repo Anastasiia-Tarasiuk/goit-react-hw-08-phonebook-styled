@@ -1,12 +1,13 @@
-import { Container, Title} from "./Home.styled";
+import { SubtitleText } from "components/SubtitleText/SubtitleText";
+import { TitleText } from "components/TitleText/TitleText";
+import { FormContainer } from "components/Container/Container";
 
 const Home = () => {
-
     return (
-        <Container>
-            <Title>Welcome to Phonebook</Title>
-            <p>This is a website made to keep all your contacts secured</p>
-        </Container>
+        <FormContainer>
+            <TitleText text={'Welcome to Phonebook'}/>
+            <SubtitleText text={'This is a website made to keep all your contacts secured'}/>
+        </FormContainer>
     )
 }
 

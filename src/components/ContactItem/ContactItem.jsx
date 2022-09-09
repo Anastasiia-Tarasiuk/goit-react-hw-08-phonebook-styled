@@ -12,7 +12,7 @@ export const ContactItem = ({ name, number, id }) => {
         <Number>{number}</Number>
         
         <Button
-            className="ml-1"
+            style={{marginLeft: '10px'}}
             variant="primary"
             type="button"
             disabled={isDeleting}

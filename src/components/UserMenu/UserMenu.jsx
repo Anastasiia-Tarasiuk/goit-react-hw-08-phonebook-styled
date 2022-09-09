@@ -3,7 +3,7 @@ import { authSelectors } from "auth/authSelectors";
 import { useDispatch } from "react-redux";
 import { authOperations } from "auth/authOperations";
 import { Container, UserName, Avatar, AvatarLetter } from "./UserMenu.styled";
-import Button from 'react-bootstrap/Button';
+import { ButtonElement } from "components/ButtonElement/ButtonElement";
 
 const UserMenu = () => {
 
@@ -16,7 +16,7 @@ const UserMenu = () => {
                 <AvatarLetter>{userName.slice(0,1).toUpperCase()}</AvatarLetter>
             </Avatar>
             <UserName>{userName}</UserName>
-            <Button variant="primary" type="button" onClick={() => dispatch(authOperations.logOut())}>Log out</Button>
+            <ButtonElement text={'Log out'} type={"button"} func={() => dispatch(authOperations.logOut())} />
         </Container>
     )
 };
