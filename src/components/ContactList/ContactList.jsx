@@ -3,6 +3,7 @@ import { Loader } from "components/Loader/Loader";
 import { useSelector } from "react-redux/es/exports";
 import { useGetContactsQuery } from 'redux/contactsSlice';
 import { List } from "./ContactList.styled";
+import { SubtitleText } from "components/SubtitleText/SubtitleText";
 
 export const ContactList = () => {
     const { data, isFetching} = useGetContactsQuery();
@@ -21,8 +22,10 @@ export const ContactList = () => {
             {!isFetching ?
                 (data.length > 0 ?
                     <List>
-                    {contactsForRender.map(contact =>
-                        <ContactItem key={contact.id} id={contact.id} name={contact.name} number={contact.number} />)}
+                        {contactsForRender.length > 0
+                            ? contactsForRender.map(contact => <ContactItem key={contact.id} id={contact.id} name={contact.name} number={contact.number} />)
+                            : <SubtitleText text={'Here is no such contact in your Phonebook'} />
+                        }
                     </List>
                     : <p>Phonebook is empty</p>
                 )

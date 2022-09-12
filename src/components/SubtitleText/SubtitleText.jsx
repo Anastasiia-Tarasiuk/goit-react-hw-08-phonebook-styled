@@ -1,5 +1,10 @@
-import { SubTitle } from "./SubtitleText.styled"
+import { SubTitle, SubTitleWrapper } from "./SubtitleText.styled"
 
 export const SubtitleText = ({ text }) => {
-    return <SubTitle>{ text }</SubTitle>
+    return (
+        <SubTitleWrapper>
+            <SubTitle>{text}</SubTitle >
+        </SubTitleWrapper>
+
+    )
 }

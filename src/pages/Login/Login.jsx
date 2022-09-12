@@ -41,8 +41,8 @@ const Login = () => {
     return (
         <FormContainer>    
             <TitleText text={'Login form'}/>
-            <SubtitleText text={'Please, sign in'}/>
-            <Form onSubmit={handleSubmit} className="w-50 d-flex flex-column justify-content-center">
+            <SubtitleText text={'Please, sign in'}  />
+            <Form onSubmit={handleSubmit} className="w-50 d-flex flex-column justify-content-center" style={{marginTop: '20px'}}>
                 <FloatingLabel
                     controlId="floatingEmailInput"
                     label="Email"

@@ -46,7 +46,7 @@ const Register = () => {
         <FormContainer>
             <TitleText text={'Register form'}/>
             <SubtitleText text={'Please, enter the correct information to become a user of Phonebook'}/>
-            <Form onSubmit={handleSubmit} className="w-50 d-flex flex-column justify-content-center">
+            <Form onSubmit={handleSubmit} className="w-50 d-flex flex-column justify-content-center" style={{marginTop: '20px'}}>
                 <FloatingLabel
                     controlId="floatingNameInput"
                     label="Name"
